@@ -1,5 +1,6 @@
 package com.airbnb.bookingservice;
 
-public interface LocationRepository {
-    Location findById(int i);
+import org.springframework.data.repository.CrudRepository;
+
+public interface LocationRepository extends CrudRepository<Location, Long> {
 }
