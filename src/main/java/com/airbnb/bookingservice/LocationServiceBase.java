@@ -3,6 +3,8 @@ package com.airbnb.bookingservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class LocationServiceBase implements LocationService {
 
@@ -12,11 +14,11 @@ public class LocationServiceBase implements LocationService {
         this.locationRepository = locationRepository;
     }
 
-    public Location getLocationDetails(int id) {
-        Location loc = locationRepository.findById(id);
-        if(loc == null) {
+    public Location getLocationDetails(long id) {
+        Optional<Location> loc = locationRepository.findById(id);
+        if(!loc.isPresent()) {
             throw new LocationNotFoundException();
         }
-        return loc;
+        return loc.get();
     }
 }

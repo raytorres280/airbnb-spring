@@ -1,14 +1,22 @@
 package com.airbnb.bookingservice;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Location {
 
-    private int id;
+    @Id
+    @GeneratedValue
+    private Long id;
+
     private String name;
     private String city;
     private float avgReview;
     private int userId;
 
-    public Location(int id, String name, String city, float avgReview, int userId) {
+    public Location(long id, String name, String city, float avgReview, int userId) {
         this.id = id;
         this.name = name;
         this.city = city;
@@ -16,11 +24,11 @@ public class Location {
         this.userId = userId;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
