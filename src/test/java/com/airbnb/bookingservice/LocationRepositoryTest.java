@@ -27,7 +27,6 @@ public class LocationRepositoryTest {
 
     @Test
     public void findLocationById_returnsNull() throws Exception {
-        given
         Optional<Location> loc = repository.findById((long) 1);
         assertThat(loc.isPresent()).isFalse();
     }
